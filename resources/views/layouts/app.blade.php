@@ -72,6 +72,7 @@
             </div>
         </nav>
 
+        @yield('searchbox')
         <main class="py-4">
             @yield('content')
         </main>

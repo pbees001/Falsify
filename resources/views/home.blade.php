@@ -14,10 +14,18 @@
                         </div>
                     @endif
 
+                    @auth
+                        {{ Auth::user()->name }}
+                    @endauth
+
                     You are logged in!
-                </div>
+
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('searchbox')
+    @include('searchlayout')
 @endsection
