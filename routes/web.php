@@ -20,3 +20,16 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home')
     ->middleware('verified');
 
+//Route::get('/changepassword', function (){
+//    return view('/auth/passwords/changepassword');
+//})->name('changepassword');
+
+Route::get('/changepassword', 'ChangePasswordController@change')->name('changepassword')
+    ->middleware('verified');
+
+Route::post('/changepassword', 'UpdateChangedPasswordController@update')->name('password.changed');
+
+Route::get('/adminrequests', function (){
+    $users = \Illuminate\Support\Facades\DB::select('select * from users where admin_verified = 0');
+   return view('adminpagehelper', ['users'=>$users]);//->middleware('adminverified');
+})->name('adminrequests');

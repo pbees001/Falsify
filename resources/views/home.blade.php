@@ -29,3 +29,13 @@
 @section('searchbox')
     @include('searchlayout')
 @endsection
+
+@section('adminbutton')
+        @auth()
+            @if(auth()->user()->email == 'admin@gmail.com')
+                <form method="GET" action="{{route('adminrequests')}}">
+                    <input type="submit" class="button" value="Admin Request">
+                </form>
+            @endif
+        @endauth
+@endsection
