@@ -33,3 +33,7 @@ Route::get('/adminrequests', function (){
     $users = \Illuminate\Support\Facades\DB::select('select * from users where admin_verified = 0');
    return view('adminpagehelper', ['users'=>$users]);//->middleware('adminverified');
 })->name('adminrequests');
+
+Route::get('/twofactor', 'TwoFactorController@show')->name('twofactor')->middleware('verified');
+Route::POST('/twofactor', 'TwoFactorController@check');
+

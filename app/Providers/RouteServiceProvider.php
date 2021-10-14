@@ -23,6 +23,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/home';
 
+    public const TWOFACTOR = '/twofactor';
+
     /**
      * Define your route model bindings, pattern filters, etc.
      *

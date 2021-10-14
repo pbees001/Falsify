@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -34,7 +34,7 @@
         @auth()
             @if(auth()->user()->email == 'admin@gmail.com')
                 <form method="GET" action="{{route('adminrequests')}}">
-                    <input type="submit" class="button" value="Admin Request">
+                    <input type="submit" class="navbar-brand" value="Admin Request">
                 </form>
             @endif
         @endauth

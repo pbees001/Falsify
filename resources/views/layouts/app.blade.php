@@ -62,6 +62,15 @@
                                 </li>
                             @endif
                         @else
+                            @if(auth()->user()->email == 'admin@gmail.com')
+                                <a class="navbar-brand" href="{{ url('/adminrequests') }}">
+                                    Admin Requests
+                                </a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            @endif
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -95,7 +104,6 @@
 
         @yield('searchbox')
         <main class="py-4">
-            @yield('adminbutton')
             @yield('content')
         </main>
     </div>
