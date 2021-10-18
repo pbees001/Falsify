@@ -4982,6 +4982,26 @@ input[type=button].btn-block {
   border-radius: 0.25rem;
 }
 
+.cardfixed {
+    position: relative;
+    table-layout: fixed;
+    display: flex;
+    flex-direction: row;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.cardtd {
+    table-layout: fixed;
+    width: 50%;
+    height: 500px;
+    vertical-align: top;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .card > hr {
   margin-right: 0;
   margin-left: 0;

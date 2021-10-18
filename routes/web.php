@@ -37,3 +37,6 @@ Route::get('/adminrequests', function (){
 Route::get('/twofactor', 'TwoFactorController@show')->name('twofactor')->middleware('verified');
 Route::POST('/twofactor', 'TwoFactorController@check');
 
+Route::POST('/home', function (){
+    return view('searchresultshelper');
+})->name('searchresults')->middleware('verified');
