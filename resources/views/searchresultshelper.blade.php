@@ -1,15 +1,17 @@
 @extends('home')
 
 @section('leftpane')
-    @include('FakeArticles/check')
+    @include('FakeArticles/article'.$id)
 @endsection
 
 @section('rightpane1')
+
 @endsection
 
 @section('rightpane2')
-    @include('SnopesPages/DeltaPilot')
+    @include('SnopesPages/snopesarticle'.$id)
 @endsection
 
 @section('rightpane3')
+    @include('underconstruction')
 @endsection

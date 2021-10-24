@@ -4996,7 +4996,7 @@ input[type=button].btn-block {
 
 .cardtd {
     table-layout: fixed;
-    width: 50%;
+    width: 580px;
     height: 500px;
     vertical-align: top;
     border: 1px solid rgba(0, 0, 0, 0.125);
