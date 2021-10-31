@@ -8,7 +8,6 @@
                 <table>
                     <tr>
                         <td class="cardtd">
-                            Original Article
                             @yield('leftpane')
                         </td>
                         <td class="cardtd">

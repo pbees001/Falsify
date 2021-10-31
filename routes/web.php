@@ -40,3 +40,6 @@ Route::POST('/results', 'SearchClientController@dosearch')->name('searchresults'
 
 Route::get('/results/', 'SearchClientController@showcontent')->name('searchresultshelper');
 
+Route::get('/articles',function (){
+    return view('articlebox');
+})->name('articlebox');
