@@ -6,7 +6,7 @@
 
 @section('rightpane1')
     <?php
-        $string = file_get_contents("/Users/aruntella/Desktop/Priyatham/Courses/518 - Web Programming/Project/git/CS-518-WebProject/public/researchpapers.json");
+        $string = file_get_contents("/Users/aruntella/Desktop/Priyatham/Courses/518 - Web Programming/Project/git/CS-518-WebProject/public/researchpapers2.json");
         $json = json_decode($string);
         $ct=$id-1;?>
     <?php

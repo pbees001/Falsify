@@ -48,7 +48,3 @@
 @section('searchbox')
     @include('searchlayout')
 @endsection
-
-@section('tabbedpane')
-
-@endsection

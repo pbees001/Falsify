@@ -4999,7 +4999,7 @@ input[type=button].btn-block {
     width: 580px;
     height: 500px;
     vertical-align: top;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 1px solid rgba(0, 0, 0, 0.325);
 }
 
 .card > hr {
