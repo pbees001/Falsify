@@ -27,6 +27,7 @@ class SearchClientController extends Controller
             'index' => 'articlesearch1',
             'body' => [
                 '_source' => ["id","title","content"],
+                'size' => 30,
                 'query' => [
                     'match' => [
                         'content' => $_POST["searchtext"]
@@ -52,10 +53,35 @@ class SearchClientController extends Controller
     }
 
     public function showcontent() {
-        $id = request('id');
-        return view('searchresultshelper', [
-            'id' => $id
-        ]);
+        $id = (int)request('id');
+        if ($id >= 1 && $id <= 50) {
+            return view('searchresultshelper', [
+                'id' => $id
+            ]);
+        } else {
+            return view('home');
+        }
+    }
+
+    public function dosearchapi(){
+        $terms = request('query');
+        $limit = request('n');
+
+        $params = [
+            'index' => 'articlesearch1',
+            'body' => [
+                '_source' => ["id","title","content"],
+                'size' => $limit,
+                'query' => [
+                    'match' => [
+                        'content' => $terms
+                    ]
+                ]
+            ]
+        ];
+
+        $responce = $this->elasticsearch->search($params);
+        return $responce;
     }
 
 }
