@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\passportAuthController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SearchClientController;
 
@@ -14,8 +15,19 @@ use App\Http\Controllers\SearchClientController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 Route::get('/search', 'SearchClientController@dosearchapi');
+
+Route::get('/gettoken', 'Auth\LoginController@getTokenapi');
+
+Route::post('register',[passportAuthController::class,'registerUser2']);
+Route::post('login',[passportAuthController::class,'loginUser']);
+//add this middleware to ensure that every request is authenticated
+Route::middleware('auth:api')->group(function(){
+    Route::get('user', [passportAuthController::class,'authenticatedUserDetails']);
+});
+
+

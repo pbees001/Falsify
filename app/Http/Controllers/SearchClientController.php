@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use function MongoDB\BSON\toJSON;
+use Carbon\Carbon;
 
 class SearchClientController extends Controller
 {
@@ -66,22 +69,41 @@ class SearchClientController extends Controller
     public function dosearchapi(){
         $terms = request('query');
         $limit = request('n');
+        $key = request('key');
 
-        $params = [
-            'index' => 'articlesearch1',
-            'body' => [
-                '_source' => ["id","title","content"],
-                'size' => $limit,
-                'query' => [
-                    'match' => [
-                        'content' => $terms
-                    ]
-                ]
-            ]
-        ];
+        $resultids = (array)DB::select('select id from oauth_access_tokens');
+        $resultstr = json_encode($resultids);
+        if (str_contains($resultstr, $key)) {
+                    $params = [
+                        'index' => 'articlesearch1',
+                        'body' => [
+                            '_source' => ["id","title","content"],
+                            'size' => $limit,
+                            'query' => [
+                                'match' => [
+                                    'content' => $terms
+                                ]
+                            ]
+                        ]
+                    ];
 
-        $responce = $this->elasticsearch->search($params);
-        return $responce;
+            $responce = $this->elasticsearch->search($params);
+#            return $responce;
+            $rank = 1;
+            $current_date_time = Carbon::now()->toDateTimeString();
+            while($rank <= $limit && $rank <= $responce["hits"]["total"]["value"])
+            {
+                $result[$rank]['ranking'] = $rank;
+                $result[$rank]['article_id'] = $responce["hits"]["hits"][$rank-1]["_id"];
+                $result[$rank]['title'] = $responce["hits"]["hits"][$rank-1]["_source"]["title"];
+//                $result[$rank]['content'] = $responce["hits"]["hits"][$rank-1]["_source"]["content"];
+                $result[$rank]['timestamp'] =$current_date_time;
+                $rank+=1;
+            }
+            return response()->json(['response'=>$result], 200);
+        } else {
+            return response()->json(['error' => 'UnAuthorised Access'], 401);
+        }
     }
 
 }
