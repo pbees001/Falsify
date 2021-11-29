@@ -30,10 +30,13 @@ class SearchClientController extends Controller
             'index' => 'articlesearch1',
             'body' => [
                 '_source' => ["id","title","content"],
-                'size' => 30,
+                'size' => 40,
                 'query' => [
                     'match' => [
-                        'content' => $_POST["searchtext"]
+                        'content' => [
+                            'query' => $_POST["searchtext"],
+                            'fuzziness' => 'AUTO'
+                        ]
                     ]
                 ]
             ]
@@ -42,7 +45,7 @@ class SearchClientController extends Controller
         $responce = $this->elasticsearch->search($params);
 
 /*        for ($i=0;$i<$responce["hits"]["total"]["value"];$i++) {
-            print_r($responce["hits"]["hits"][$i]["_id"]);
+            print_r($responce["hits"]["hits"][$i]["_id"]); $_POST["searchtext"]
             echo '<br/>';
             print_r($responce["hits"]["hits"][$i]["_source"]["title"]);
             echo '<br/>';
@@ -81,7 +84,10 @@ class SearchClientController extends Controller
                             'size' => $limit,
                             'query' => [
                                 'match' => [
-                                    'content' => $terms
+                                    'content' => [
+                                        'query' => $terms,
+                                        'fuzziness' => 'AUTO'
+                                    ]
                                 ]
                             ]
                         ]

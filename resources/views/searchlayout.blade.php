@@ -15,15 +15,29 @@
           <fieldset>
             <div class="wrapp">
                <div class="search">
-                  <input type="text" class="searchTerm" name="searchtext" placeholder="What are you looking for?">
+                   <img class="voicesearchButton" src="{{ asset('voicesearchicon.png') }}" alt="v" onclick=record()>
+                  <input type="text" class="searchTerm" id="searchtext" name="searchtext" spellcheck="true" autocomplete="on" placeholder="What are you looking for?">
                   <button type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
-                 </button>
+                  </button>
+                   <script>
+                       function record(){
+                           var recognition = new webkitSpeechRecognition();
+                           recognition.lang = "en-US";
+                           console.log("speech recog");
+                           recognition.onresult = function (event) {
+                               console.log(event);
+                               document.getElementById('searchtext').value = event.results[0][0].transcript;
+                           }
+                           recognition.start();
+                       }
+                   </script>
                </div>
             </div>
          </fieldset>
           <!-- partial -->
       </form>
   </div>
+
 </body>
 </html>
