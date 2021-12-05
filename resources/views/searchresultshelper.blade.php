@@ -35,5 +35,11 @@
 @endsection
 
 @section('rightpane3')
-    @include('underconstruction')
+    @include('surveypage')
 @endsection
+
+<?php
+    if(isset($_GET['ques1'])){
+        echo "inside search results";
+        }
+    ?>

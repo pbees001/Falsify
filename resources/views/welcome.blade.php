@@ -85,6 +85,6 @@
                 </div>
             </div>
         </div>
+        @include('footer')
     </body>
-@include('footer')
 </html>

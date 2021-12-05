@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use function MongoDB\BSON\toJSON;
 use Carbon\Carbon;
@@ -60,6 +61,18 @@ class SearchClientController extends Controller
 
     public function showcontent() {
         $id = (int)request('id');
+        $q1 = request('ques1');
+        $q2 = request('ques2');
+        $q3 = request('ques3');
+        $q4 = request('ques4');
+        $q5 = request('ques5');
+        $res = $q1.$q2.$q3.$q4.$q5;
+        if($res!="") {
+            $val = DB::table('users')->where('id', Auth::user()->id)->first();
+            if ($val->survey != $res) {
+                $result = DB::select('Update users set survey = ' . $res . ' where id = ' . Auth::user()->id);
+            }
+        }
         if ($id >= 1 && $id <= 50) {
             return view('searchresultshelper', [
                 'id' => $id

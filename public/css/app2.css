@@ -80,3 +80,50 @@
     max-width: 100em;
     table-layout: fixed;
 }
+
+.survey-heading {
+    color: #0b9e89;
+    text-align: center;
+}
+
+/* Styling the Form (Color, Padding, Shadow) */
+.form-survey {
+    background-color: #fff;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling form-controls Class */
+.form-controls {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+/* Styling form-controls Label */
+.form-controls label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styling form-controls input,
+select, textarea */
+.form-controls input,
+.form-controls select,
+.form-controls textarea {
+    border: 1px solid #777;
+    border-radius: 2px;
+    font-family: inherit;
+    padding: 10px;
+    display: block;
+    width: 95%;
+}
+
+/* Styling form-controls Radio
+button and Checkbox */
+.form-controls input[type="radio"],
+.form-controls input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+}

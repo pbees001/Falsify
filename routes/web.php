@@ -11,9 +11,9 @@ use \Illuminate\Support\Facades\URL;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//if (env('APP_ENV') === 'production') {
-//    URL::forceScheme('https');
-//}
+if (env('APP_ENV') === 'production') {
+    URL::forceScheme('https');
+}
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,8 +43,12 @@ Route::POST('/twofactor', 'TwoFactorController@check');
 
 Route::POST('/results', 'SearchClientController@dosearch')->name('searchresults')->middleware('verified');
 
-Route::get('/results/', 'SearchClientController@showcontent')->name('searchresultshelper');
+Route::get('/results/', 'SearchClientController@showcontent')->name('searchresultshelper')->middleware('verified');
 
 Route::get('/articles',function (){
     return view('articlebox');
 })->name('articlebox');
+
+Route::get('/surveypage', function (){
+    return view('surveypage');
+});
