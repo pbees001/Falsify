@@ -1,3 +1,5 @@
 <html>
+<body class="abc">
 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shannyfantg/video/7019870782239083782" data-video-id="7019870782239083782" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@shannyfantg" href="https://www.tiktok.com/@shannyfantg">@shannyfantg</a> <p>sorry for the obnoxious barking at the beginning. watch my black dog. ghost takes her collar off in her crate. <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp">#fyp</a> <a title="ghost" target="_blank" href="https://www.tiktok.com/tag/ghost">#ghost</a> <a title="dog" target="_blank" href="https://www.tiktok.com/tag/dog">#dog</a> <a title="scary" target="_blank" href="https://www.tiktok.com/tag/scary">#scary</a> <a title="wtf" target="_blank" href="https://www.tiktok.com/tag/wtf">#wtf</a></p> <a target="_blank" title="♬ original sound - user3228721954538" href="https://www.tiktok.com/music/original-sound-7019870571450141445">♬ original sound - user3228721954538</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+</body>
 </html>

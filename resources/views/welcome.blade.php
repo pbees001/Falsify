@@ -13,11 +13,12 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #000000;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                opacity: 100%;
             }
 
             .full-height {
@@ -40,6 +41,12 @@
                 top: 18px;
             }
 
+            .top-left {
+                position: absolute;
+                left: 20px;
+                top: 18px;
+            }
+
             .content {
                 text-align: center;
             }
@@ -49,13 +56,14 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #000000;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                opacity: initial;
             }
 
             .m-b-md {
@@ -64,8 +72,11 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height" style="background-image: url('{{ asset('images/background-main.png') }}'); background-repeat: no-repeat; background-attachment: relative; background-size: 100% 100%; opacity: 1" >
             @if (Route::has('login'))
+                <div class="top-left links">
+                    <a href="{{ url('/') }}">Falsify</a>
+                </div>
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -81,7 +92,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to Falsify
+{{--                    Welcome to Falsify--}}
                 </div>
             </div>
         </div>

@@ -110,6 +110,7 @@
         @yield('searchbox')
         @yield('content')
         <main class="py-4">
+            <br>
         </main>
     </div>
 </body>

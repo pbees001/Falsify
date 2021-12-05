@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <br><br><br>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -15,7 +16,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Check OTP sent to mail') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="text" name="password">
+                                    <input id="password" class="form-control" type="text" name="password">
 
                                 </div>
                             </div>
@@ -39,4 +40,7 @@
             </div>
         </div>
     </div>
+    <main class="py-4">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </main>
 @endsection

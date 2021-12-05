@@ -37,9 +37,3 @@
 @section('rightpane3')
     @include('surveypage')
 @endsection
-
-<?php
-    if(isset($_GET['ques1'])){
-        echo "inside search results";
-        }
-    ?>

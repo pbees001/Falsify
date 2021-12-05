@@ -39,6 +39,7 @@
 <form id="form" class="form-survey" action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="GET">
 
     <div class="form-controls">
+        <input type="hidden" name="id" value="<?php echo (int)request('id'); ?>">
         <label>
             1. Was the article true or false based on SciPEP’s recommendation?
         </label>
