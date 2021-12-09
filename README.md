@@ -4,8 +4,13 @@ This project has been developed in Laravel framework.
 
 Languages used: HTML, CSS, Javascript, PHP
 
-To run the project, Do command "Php artisan serve". 
+To run the project, Do command "sudo php artisan serve --host=localhost --port=80". 
 
-The website will be hosted and running at http://127.0.0.1:8000/
+I've hosted my project on HTTPS using nginx, the custom configuration file is nginx_custom.conf
 
-Sample backup of MySQL Database is provided, use web_project.sql file.
+The website will be hosted and running at https://127.0.0.1/
+
+Sample backup of MySQL Database is provided, use finalprojectdb.sql file.
+
+My snopes page articles and fake articles are stored in resources/views folder.
+
